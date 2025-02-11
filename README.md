@@ -8,8 +8,15 @@ That approach comes with the limitation that configuration details need to be kn
 
 This solution allows for combining both approaches.
 
+## Why and when do I need these additional Resource Attributes?
+* With OneAgent in FullStack Mode you likely don't require OpenTelemetry at all
+* With OneAgent in Infrastructure Mode or Discovery Mode these additional Resource Attributes allow Dynatrace to assign incoming OpenTelemetry signals (traces, metrics or logs) to the entities (host, process and process group) OneAgent already has discovered. Without these Resource Attributes Dynatrace may contain two separate entities per process.
+
+## Download locations for binaries
+
 * Download the [opentelemetry-javaagent.jar](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v2.12.0/opentelemetry-javaagent.jar)
 * Download [otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar](https://github.com/Reinhard-Pilz-Dynatrace/otel-java-instrumentation-extension-dtmetadata/releases/download/v1.0.0/otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar) from this repository.
+
 
 ## Usage with environment variables on Linux
 ```
@@ -27,3 +34,6 @@ Execute your Java Application using `java -jar your-main-jar`
 
 ## Usage with with JVM argumentes
 Execute your Java Application using `java -javaagent:/path/to/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar -jar your-main-jar`
+
+## Implementation Details
+This solution utilizes the [Java Service Provider Interface](https://opentelemetry.io/docs/languages/java/configuration/#spi-service-provider-interface) to configure the OpenTelemetry SDK injected by the OpenTelemetry Java Agent.
