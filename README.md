@@ -15,25 +15,25 @@ This solution allows for combining both approaches.
 ## Download locations for binaries
 
 * Download the [opentelemetry-javaagent.jar](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v2.12.0/opentelemetry-javaagent.jar)
-* Download [otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar](https://github.com/Reinhard-Pilz-Dynatrace/otel-java-instrumentation-extension-dtmetadata/releases/download/v1.0.0/otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar) from this repository.
+* Download [otel-java-instrumentation-extension-dtmetadata-v2.0.0.jar](https://github.com/Reinhard-Pilz-Dynatrace/otel-java-instrumentation-extension-dtmetadata/releases/download/v2.0.0/otel-java-instrumentation-extension-dtmetadata-v2.0.0.jar) from this repository.
 
 
 ## Usage with environment variables on Linux
 ```
 export JAVA_TOOL_OPTIONS=-javaagent:/path/to/opentelemetry-javaagent.jar
-export OTEL_JAVAAGENT_EXTENSIONS=otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar
+export OTEL_JAVAAGENT_EXTENSIONS=otel-java-instrumentation-extension-dtmetadata-v2.0.0.jar
 ```
 Execute your Java Application using `java -jar your-main-jar`
 
 ## Usage with environment variables on Windows
 ```
 set JAVA_TOOL_OPTIONS=-javaagent:/path/to/opentelemetry-javaagent.jar
-set OTEL_JAVAAGENT_EXTENSIONS=otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar
+set OTEL_JAVAAGENT_EXTENSIONS=otel-java-instrumentation-extension-dtmetadata-v2.0.0.jar
 ```
 Execute your Java Application using `java -jar your-main-jar`
 
 ## Usage with with JVM argumentes
-Execute your Java Application using `java -javaagent:/path/to/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=otel-java-instrumentation-extension-dtmetadata-v1.0.0.jar -jar your-main-jar`
+Execute your Java Application using `java -javaagent:/path/to/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=otel-java-instrumentation-extension-dtmetadata-v2.0.0.jar -jar your-main-jar`
 
 ## Implementation Details
 This solution utilizes the [Java Service Provider Interface](https://opentelemetry.io/docs/languages/java/configuration/#spi-service-provider-interface) to configure the OpenTelemetry SDK injected by the OpenTelemetry Java Agent.
